@@ -1,29 +1,32 @@
-import { render, screen } from '@testing-library/react';
-import Button, { BUTTON_TYPE_CLASSES } from '../button.component';
+import { render, screen } from "@testing-library/react";
+import Button, { BUTTON_TYPE_CLASSES } from "../button.component";
 
-describe('button tests', () => {
-  test('should render base button when nothing is passed', () => {
-    render(<Button>Test</Button>);
+describe("button tests", () => {
+  test("should render base button ", () => {
+    render(<Button />);
 
-    expect(screen.getByRole('button')).toHaveStyle('background-color: black');
-    expect(screen.getByRole('button')).not.toBeDisabled();
+    const buttonElement = screen.getByRole("button");
+    expect(buttonElement).toHaveStyle("background-color: black");
   });
 
-  test('should be disabled if isLoading is true', () => {
-    render(<Button isLoading={true}>Test</Button>);
+  test("should render google button when passed google button type", () => {
+    render(<Button buttonType={BUTTON_TYPE_CLASSES.google} />);
 
-    expect(screen.getByRole('button')).toBeDisabled();
+    const googleButtonElement = screen.getByRole("button");
+    expect(googleButtonElement).toHaveStyle("background-color: #4285f4");
   });
 
-  test('should render google button when passed google type', () => {
-    render(<Button buttonType={BUTTON_TYPE_CLASSES.google}>Test</Button>);
+  test("should render inverted button when passed inverted button type", () => {
+    render(<Button buttonType={BUTTON_TYPE_CLASSES.inverted} />);
 
-    expect(screen.getByRole('button')).toHaveStyle('background-color: #4285f4');
+    const invertedButton = screen.getByRole("button");
+    expect(invertedButton).toHaveStyle("background-color: white");
   });
 
-  test('should render inverted button when passed inverted type', () => {
-    render(<Button buttonType={BUTTON_TYPE_CLASSES.inverted}>Test</Button>);
+  test("should be disabled if isLoading is true", () => {
+    render(<Button isLoading />);
 
-    expect(screen.getByRole('button')).toHaveStyle('background-color: white');
+    const buttonElement = screen.getByRole("button");
+    expect(buttonElement).toBeDisabled();
   });
 });

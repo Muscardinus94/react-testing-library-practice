@@ -75,7 +75,10 @@
     "@types/enzyme": "3.10.11",
     "@types/react-test-renderer": "17.0.1",
     "babel-plugin-macros": "3.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "jest-extended": "2.0.0",
+    "prettier": "^3.0.1",
     "react-test-renderer": "18.0.0"
   }
 }
